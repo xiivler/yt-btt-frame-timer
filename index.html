@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -12,39 +12,30 @@
 
 <body class="stackedit">
   <div class="stackedit__html">
-    <h1 id="youtube-interval-timer">YouTube Interval Timer</h1>
+    <h1 id="youtube-interval-timer">YouTube BTT Frame Timer</h1>
     <h3 id="about">About</h3>
-    <p>Takes start and stop points of a YouTube video, down to the frame, and gives the time between them in the format
-      <code>1h 23m 45s 678ms</code>. Source code is <a
-        href="https://github.com/slashinfty/yt-frame-timer">available</a>.
+    <p>Finds the time of a YouTube segment in seconds and 60 FPS frames. Source code is <a
+        href="https://github.com/xiivler/yt-btt-frame-timer">available</a>. Based on slashinfinity's yt-frame-timer.
     </p>
-    <h3 id="video-framerate">Video Framerate</h3>
-    <p>Right click the YouTube video and select “Stats for nerds.” The third line is “Current / Optimal Res” - find the
-      two numbers after the @ and enter them for framerate.</p>
+    <h3 id="video-endpoints">Start and End Times</h3>
     <p>
-      <label for="framerate">Framerate: </label>
-      <input type="text" id="framerate" size="3" value="60" onchange='validateFPS(event)' />
-    </p>
-    <h3 id="video-endpoints">Video Endpoints</h3>
-    <p>
-      Find the starting point (you can use the <code>,</code> and <code>.</code> keys to find the exact frame). Right
-      click the video and select “Copy debug info” and paste it for starting frame. Repeat for ending frame.
+      Find the start frame (you can use the <code>,</code> and <code>.</code> keys to find the exact frame). Right
+      click the video and select “Copy debug info” and paste it for starting frame. Now, navigate to the end frame <b>without pressing play or clicking on the time bar at the bottom of the video.</b>
     </p>
     <p>
-      <label for="startobj">Starting frame: </label>
+    Tip: if you put the video at 0.25 speed, the left and right arrows will skip forward and back only 1.25 seconds.
+    </p>
+    <p>
+      <label for="startobj">Starting time: </label>
       <input type="text" id="startobj" style='width:100%' onchange='parseForTime(event)' />
     </p>
     <p>
-      <label for="endobj">Ending frame: </label>
+      <label for="endobj">Ending time: </label>
       <input type="text" id="endobj" style='width:100%' onchange='parseForTime(event)' />
     </p>
-    <h3 id="video-time">Video Time</h3>
+    <h3 id="video-time">Time in Frames</h3>
     <button id="computeButton" onclick="compute()">Compute time</button>&nbsp;<input type="text" id="time" readonly
       size="20" />
-    <p>
-      <textarea id="modMessage" cols="40" rows="5" disabled></textarea>
-    </p>
-    <button id="modMessageButton" onclick="copyModMessage()" disabled>Copy Mod Message to Clipboard</button>
   </div>
 </body>
 
