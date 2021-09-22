@@ -77,7 +77,7 @@ const parseForTime = (event) => {
         // Get the framerate
         let frameRate = parseInt(document.getElementById('framerate').value);
         // Calculate the frame
-        let frameFromObj = (time, fps) => Math.floor(time * fps) / fps; //round to the nearest frame
+        let frameFromObj = (time, fps) => Math.ceil(time * fps) / fps; //round to the nearest frame
         let finalFrame = frameFromObj(frameFromInputText, frameRate);
         // Update the DOM
         document.getElementById(event.target.id).value = `${finalFrame}`;
